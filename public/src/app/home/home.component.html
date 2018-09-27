@@ -1,0 +1,34 @@
+<div>
+
+  <h1 style="display: inline-block;">Product List</h1>
+  <button style="display: inline-block;margin-left: 230px;" [routerLink]="['/products/new']">Add New Product</button>
+
+
+  <table style="width: 850px; margin-top: 50px;" >
+
+      <tr style="background-color:lightslategray; color: white;">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    
+      <tr style="text-align: center;" *ngFor="let product of products">
+        <td>{{ product._id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.quantity}}</td>
+        <td>${{ product.price }}</td>
+        <td>
+          <button [routerLink]="['/products/edit/', product._id]">Edit</button>
+          <button [routerLink]="['/products/', product._id]">Details</button>
+        </td>
+      </tr>
+
+    </table>
+
+
+
+
+
+</div>

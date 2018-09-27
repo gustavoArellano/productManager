@@ -1,0 +1,21 @@
+<div>
+
+  <h1>Product Details</h1>
+
+  <div style="display: block;">
+    <h2 style="display: inline-block;">Name</h2> <p style="display: inline-block; margin-left: 280px;">{{ product.name }}</p>
+  </div> 
+
+  <div style="display: block;">
+    <h2 style="display: inline-block;">Qty</h2> <p style="display: inline-block; margin-left: 300px;">{{ product.quantity }}</p>
+  </div> 
+
+  <div style="display: block;">
+    <h2 style="display: inline-block;">Price</h2> <p style="display: inline-block; margin-left: 290px;">${{ product.price }}</p>
+  </div> 
+
+
+  <button (click)="goHome()">BACK</button>
+  <button (click)="deleteProduct(product._id)" [disabled]="!product.quantity == 0">DELETE</button>
+
+</div>

@@ -1,0 +1,34 @@
+<h1>Update Product</h1>
+
+<form (submit)="changeProduct(productInfo._id)">
+  <span class="text-danger" *ngIf="errors.name">{{ errors.name.message }}</span>
+  <p>Name: <input type="text" name="name" required minlength="3" #name="ngModel" [(ngModel)]="productInfo.name"></p>
+  <div *ngIf="!name.valid && (name.dirty || name.touched)">
+    <span class="text-danger" *ngIf="name.errors.required">Product name required!(FrontEnd)</span>
+    <span class="text-danger" *ngIf="name.errors.minlength">Must be at least 3 characters!(FrontEnd)</span>
+  </div>
+
+  <span class="text-danger" *ngIf="errors.quantity">{{ errors.quantity.message }}</span>
+  <p>Qty: <input type="text" name="quantity" required min=0 #quantity="ngModel" [(ngModel)]="productInfo.quantity"></p>
+  <div *ngIf="!quantity.valid && (quantity.dirty || quantity.touched)">
+    <span class="text-danger" *ngIf="quantity.errors.required">Product quantity is required!(FrontEnd)</span>
+    <span class="text-danger" *ngIf="quantity.errors.min">Product quantity is not a valid number!(FrontEnd)</span>
+  </div>
+
+  <span class="text-danger" *ngIf="errors.price">{{ errors.price.message }}</span>
+  <p>Price: <input type="text" name="price" required min="0" #price="ngModel" [(ngModel)]="productInfo.price"></p>
+  <div *ngIf="!price.valid && (price.dirty || price.touched)">
+    <span class="text-danger" *ngIf="price.errors.required">Product price required!(FrontEnd)</span>
+    <span class="text-danger" *ngIf="price.errors.min">Product price is not a valid number!(FrontEnd)</span>
+  </div>
+
+  <!-- <button style="display: inline-block;margin-left: 230px;" [routerLink]="['/products/new']">RESET</button> -->
+  <button type="submit" style="background-color: #50BEFB" [disabled]="!name.valid || !quantity.valid || !price.valid">UPDATE</button>
+</form>
+
+<button (click)="ngOnInit()">RESET</button>
+
+
+
+
+
